@@ -1,0 +1,22 @@
+1 - Para criar um migrations basta utlizar o comando abaixo no powershell ou no prompt de comando
+	
+	dotnet ef --startup-project ../Mvc/Mvc.csproj migrations add AdicionandoCategoria
+
+Esse comando cria um migration da entidade classe categoria, veja abaixo explicação sobre os comandos:
+
+dotnet = comando da ferramenta "dotnet cli"
+ef = comando referente ao entity framework, informando que se trata de algo sobre o entity framework
+--startup-project <caminho projeto> = informa onde será iniciado a conexão, no exemplo está no projeto mvc no configure service
+migrations add <nome_migration> = cria o migration com o nome especificado
+
+#########################################################################################
+
+2 - Após a criação do migration basta atualizar a base de dados utilizando o seguinte comando
+
+	dotnet ef --startup-project ../Mvc/Mvc.csproj database update
+
+Esse comando cria/atualiza a base de dados 
+
+#########################################################################################
+
+3 - No banco de dados ele cria uma tabela automaticamente sem nos add no migration, essa tabela é responsavel por verificar a versão das tabelas criadas, o nome dessa tabela é "__EFMigrationHistory"

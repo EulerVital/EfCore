@@ -1,0 +1,7 @@
+Se o IISExpress estiver com um problema semelhante ao erro "Arquivo redirection.config nõa encontrado", basta executar os passos abaixo
+
+1 - Verificar se o IISExpress está instalado
+2 - Depois de instalar o IIS Express, copie todos os arquivos 
+	2.2 - C:\Arquivos de programas\IIS Express\config\templates\PersonalWebServer
+para 
+	% userprofile%\Documents\IISExpress\config

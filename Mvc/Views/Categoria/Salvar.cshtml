@@ -1,0 +1,29 @@
+﻿
+@model Dominio.Entidades.Categoria
+
+@{
+    ViewData["Title"] = "Formulário de Categoria";
+}
+
+<h2>Formulário de Categoria</h2>
+
+<form class="form-horizontal" asp-action="SalvarAsycn" asp-controller="Categoria" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label class="col-md-1 control-label" for="Nome">Nome</label>
+        <div class="col-md-2">
+            <input type="text" class="form-control" asp-for="Nome" />
+        </div>
+        <div class="col-md-2">
+            <input type="checkbox" class="checkbox" asp-for="IsPermiteEstoque" checked='@(Model.IsPermiteEstoque ? "true" : "false")' />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <button class="btn btn-success">Salvar</button>
+        </div>
+    </div>
+</form>
+

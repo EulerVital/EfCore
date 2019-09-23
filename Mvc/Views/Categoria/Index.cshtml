@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Dominio.Entidades.Categoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Categorias</h2>
+
+<p>
+    <a asp-action="Salvar">Criar nova Categoria</a>
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Nome
+                        </td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> ||
+                            <a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
