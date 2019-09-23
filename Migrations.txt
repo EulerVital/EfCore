@@ -17,6 +17,14 @@ migrations add <nome_migration> = cria o migration com o nome especificado
 
 Esse comando cria/atualiza a base de dados 
 
+2.1 - Você também pode voltar para uma migration especificando o nome da migração que deseja voltar, com isso as migrations criados depois da que foi especificada serão desfeita da "BASE DE DADOS", veja abaixo.
+
+	dotnet ef --startup-project ../Mvc/Mvc.csproj database update <nome_migration>
+
+2.2 - Agora você pode deletar o migration utilizando o seguinte comando, ele deleta o ultimo migration gerado
+
+	dotnet ef --startup-project ../Mvc/Mvc.csproj migrations remove
+
 #########################################################################################
 
 3 - No banco de dados ele cria uma tabela automaticamente sem nos add no migration, essa tabela é responsavel por verificar a versão das tabelas criadas, o nome dessa tabela é "__EFMigrationHistory"

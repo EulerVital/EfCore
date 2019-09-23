@@ -73,6 +73,7 @@ namespace Mvc.Controllers
             {
                 var categoria = _applicationDbContext.Categorias.First(c => c.Id == modelo.Id);
                 categoria.Nome = modelo.Nome;
+                categoria.IsPermiteEstoque = modelo.IsPermiteEstoque;
 
                 //A linha de codigo abaixo não é necessario, no Entity Framework ao executar o metodo SaveChangesAsync, 
                 //ele já entende que a variavel "categoria" que está na memoria será atualizada pois foi carregada no metodo acima

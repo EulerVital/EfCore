@@ -28,6 +28,26 @@ namespace Dados
             optionsBuilder.UseLazyLoadingProxies();
         }
 
+        /// <summary>
+        /// Método usado para alterar defaults que são gerados pelo EntityFramework Core das tabelas criadas no banco, chamamos isso de FluentAPI
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Alterar o nome da tabela
+            modelBuilder.Entity<Produto>().ToTable("Produto");
+            //Altera a coluna "Nome" colocando uma restrição de quantidade maxima de caracteres
+            modelBuilder.Entity<Produto>().Property(p => p.Nome).HasMaxLength(50);
+
+            modelBuilder.Entity<Categoria>().ToTable("Categoria");
+            modelBuilder.Entity<Categoria>().Property(p => p.Nome).HasMaxLength(50);
+
+            modelBuilder.Entity<Pedido>().ToTable("Pedidos");
+            modelBuilder.Entity<Pedido>().HasKey("Numero");
+
+            modelBuilder.Entity<Pedido>().Property(p => p.Data).HasDefaultValueSql("getdate()");
+        }
+
         //Abaixo os DbSet's são usados para mapear as entidades do banco de dados
 
         /// <summary>
@@ -35,5 +55,6 @@ namespace Dados
         /// </summary>
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
     }
 }

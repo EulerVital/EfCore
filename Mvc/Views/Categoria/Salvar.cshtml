@@ -16,8 +16,11 @@
         <div class="col-md-2">
             <input type="text" class="form-control" asp-for="Nome" />
         </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-1 control-label">Estoque</label>
         <div class="col-md-2">
-            <input type="checkbox" class="checkbox" asp-for="IsPermiteEstoque" checked='@(Model.IsPermiteEstoque ? "true" : "false")' />
+            <input type="checkbox" class="checkbox" asp-for="IsPermiteEstoque" />
         </div>
     </div>
     <div class="form-group">
